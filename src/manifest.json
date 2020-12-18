@@ -38,9 +38,23 @@
 			}
 		}
 	}, 
-  "options_ui": {
-    "page": "/content/options/options.html",
-    "browser_style": true,
-	"open_in_tab": true
-  }
+    "options_ui": {
+		"page": "/content/options/options.html",
+		"browser_style": true,
+		"open_in_tab": true
+    },
+	"commands": {
+	"edit-action": {
+	    "suggested_key": {
+		"default": "Ctrl+Shift+Z"
+	    },
+	    "description": "Edit IMAP note"
+	},
+	"duplicate-action": {
+	    "suggested_key": {
+		"default": "Ctrl+Shift+X"
+	    },
+	    "description": "Duplicate IMAP note"
+	}
+	}
 }

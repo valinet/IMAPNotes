@@ -22,6 +22,18 @@ async function main() {
     title: messenger.i18n.getMessage("lang.menuTitle2")
   });*/
   
+  messenger.runtime.onMessage.addListener(editEmailSubjectMain.handleMessage);	
+  browser.commands.onCommand.addListener(async (command) => {
+	if (command == "edit-action")
+	{
+	  editEmailSubjectMain.editLink(await messenger.mailTabs.getSelectedMessages());
+	}
+	else if (command == "duplicate-action")
+	{
+	  editEmailSubjectMain.dup2Link(await messenger.mailTabs.getSelectedMessages());
+	}
+  });
+  
 }
 
 main();

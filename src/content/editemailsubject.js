@@ -15,9 +15,13 @@
 	
     Modifications for TB78 by John Bieling (2020)
 */
-
+var waitReady = false;
 var editEmailSubjectMain = {
-
+	
+	sleep: function(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	},
+	
 	update: async function(msg, newSubject, format) {
 		
 		let raw = msg.raw
@@ -106,19 +110,11 @@ var editEmailSubjectMain = {
 		}
 		
 		let uuid = '';
-		if (format)
-		{
-			uuid = this.msg.headers["message-id"] + ".1";
-		}
-		else
-		{
-			uuid = uuidv4();
-			uuid = uuid.toUpperCase();
-			
-			let domain = this.msg.headers["message-id"][0].split('@')[1].slice(0, -1);
-			headers = headers.replace(/\nX-Universally-Unique-Identifier: *.*\r\n/i, "\nX-Universally-Unique-Identifier: " + uuid + "\r\n");
-			uuid = '<' + uuid + '@' + domain + '>';
-		}
+		uuid = uuidv4();
+		uuid = uuid.toUpperCase();
+		let domain = this.msg.headers["message-id"][0].split('@')[1].slice(0, -1);
+		headers = headers.replace(/\nX-Universally-Unique-Identifier: *.*\r\n/i, "\nX-Universally-Unique-Identifier: " + uuid + "\r\n");
+		uuid = '<' + uuid + '@' + domain + '>';
 		headers = headers.replace(/\nMessage-ID: *.*\r\n/i, "\nMessage-ID: " + uuid + "\r\n");		
 				
 		//remove the leading linebreak;
@@ -131,7 +127,11 @@ var editEmailSubjectMain = {
 			if (format)
 			{
 				await messenger.messages.delete([msg.id], true);
-				headers = headers.replace(/\nMessage-ID: *.*\r\n/i, "\nMessage-ID: " + this.msg.headers["message-id"] + "" + "\r\n");	
+				console.log("Success [" + msg.id + " vs " + newID + "]");
+				await messenger.MessageModification.selectMessage(newID);
+				msg.id = newID;
+				msg.subject = subject;
+				/*headers = headers.replace(/\nMessage-ID: *.*\r\n/i, "\nMessage-ID: " + this.msg.headers["message-id"] + "" + "\r\n");	
 				let newID2 = await messenger.MessageModification.addRaw(headers + body, msg.folder, newID);	
 				if (newID2) {
 					console.log("Success [" + msg.id + " vs " + newID + "]");
@@ -139,15 +139,15 @@ var editEmailSubjectMain = {
 					await messenger.messages.delete([newID], true);
 					msg.id = newID2;
 					msg.subject = subject;
-				}
+				}*/
 			}
 		}
 		
 		return msg;
 	},
 
-	initMsg: async function(info, msg) {
-		let MessageHeader = info.selectedMessages.messages[0];
+	initMsg: async function(message, msg) {
+		let MessageHeader = message;
 		msg.folder = MessageHeader.folder;
 		msg.subject = MessageHeader.subject;
 		msg.date = MessageHeader.date;
@@ -165,27 +165,76 @@ var editEmailSubjectMain = {
 	dup2: async function (info) {
 		this.msg = {};
 
-		if (info.selectedMessages && info.selectedMessages.messages.length > 0) {
-			this.msg = await editEmailSubjectMain.initMsg(info, this.msg);
+		if (info.selectedMessages && info.selectedMessages.messages.length > 0) 
+		{
+			for (var i = 0; i < info.selectedMessages.messages.length; i++)
+			{
+				this.msg = await editEmailSubjectMain.initMsg(info.selectedMessages.messages[i], this.msg);
+				
+				editEmailSubjectMain.update(this.msg, this.msg.body, false);
+			}
+		}
+	},
+	
+	dup2Link: async function (o) {
+		this.msg = {};
+
+		if (o && o.messages && o.messages.length > 0) {
+			for (var i = 0; i < o.messages.length; i++)
+			{
+				this.msg = await editEmailSubjectMain.initMsg(o.messages[i], this.msg);
 			
-			editEmailSubjectMain.update(this.msg, this.msg.body, false);
+				await editEmailSubjectMain.update(this.msg, this.msg.body, false);
+			}
 		}
 	},
 
-	// open edit popup
 	edit: async function (info) {
 		this.msg = {};
 
-		if (info.selectedMessages && info.selectedMessages.messages.length > 0) {
-			this.msg = await editEmailSubjectMain.initMsg(info, this.msg);
+		if (info.selectedMessages && info.selectedMessages.messages.length > 0) 
+		{
+			for (var i = 0; i < info.selectedMessages.messages.length; i++)
+			{
+				this.msg = await editEmailSubjectMain.initMsg(info.selectedMessages.messages[i], this.msg);
 
-			messenger.runtime.onMessage.addListener(this.handleMessage);	
-			this.msg.popupWindow = await messenger.windows.create({
-				url: "/content/editemailsubjectPopup.html",
-				type: "popup"
-			});
+				//messenger.runtime.onMessage.addListener(this.handleMessage);	
+				this.msg.popupWindow = await messenger.windows.create({
+					url: "/content/editemailsubjectPopup.html",
+					type: "popup"
+				});
+				
+				waitReady = true;
+				while (waitReady) {
+					await editEmailSubjectMain.sleep(10);
+				}
+				editEmailSubjectMain.sleep(20);
+			}
 		} else {
 			console.log("No Message Selected!");
+		}
+	},
+	
+	editLink: async function (o) {
+		this.msg = {};
+
+		if (o && o.messages && o.messages.length > 0)
+		{
+			for (var i = 0; i < o.messages.length; i++)
+			{
+				this.msg = await editEmailSubjectMain.initMsg(o.messages[i], this.msg);
+
+				this.msg.popupWindow = await messenger.windows.create({
+					url: "/content/editemailsubjectPopup.html",
+					type: "popup"
+				});
+				
+				waitReady = true;
+				while (waitReady) {
+					await editEmailSubjectMain.sleep(10);
+				}
+				editEmailSubjectMain.sleep(20);
+			}
 		}
 	},
 
@@ -196,6 +245,7 @@ var editEmailSubjectMain = {
 			switch (request.action) {
 				case "requestData":
 					sendResponse(editEmailSubjectMain.msg);
+					waitReady = false;
 				break;
 				case "requestUpdate":
 					if (request.newSubject != editEmailSubjectMain.msg.subject) {
