@@ -1,6 +1,0 @@
-<!ENTITY lang.menuTitle	"Editer le sujet du message">
-<!ENTITY lang.subject	"Sujet">
-<!ENTITY lang.subjectOld "Sujet original">
-<!ENTITY lang.warning	"Attention, le sujet de ce mail a déjà été modifié. Le changer de nouveau comprend des risques.">
-<!ENTITY lang.localOnly	"Changements locaux uniquement (base de donnée locale de Thunderbird)">
-<!ENTITY lang.accesskey "e">

@@ -1,6 +1,0 @@
-<!ENTITY lang.menuTitle	"Edit Mail Subject">
-<!ENTITY lang.subject	"Subject">
-<!ENTITY lang.subjectOld "Original subject">
-<!ENTITY lang.warning	"Warning, subject has already been changed. Try it again at your own risk.">
-<!ENTITY lang.localOnly	"Only local changes (will only change local Thunderbird index database)">
-<!ENTITY lang.accesskey "e">

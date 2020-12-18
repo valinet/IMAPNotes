@@ -1,6 +1,0 @@
-<!ENTITY lang.menuTitle	"Email Betreff bearbeiten">
-<!ENTITY lang.subject	"Betreff">
-<!ENTITY lang.subjectOld "Original betreff">
-<!ENTITY lang.warning	"Warnung, der Betreff wurde schon bearbeitet. Eine erneute Änderung ist mit Risiken verbunden.">
-<!ENTITY lang.localOnly	"Änderungen nur lokal speichern (Lokale Datenbank)">
-<!ENTITY lang.accesskey "e">
