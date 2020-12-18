@@ -1,14 +1,6 @@
 # IMAP Notes
 This is a simple Thunderbird extension (compatible with Thunderbird 78+ as of January 2021) that allows editing notes created, edited and synced from the iPhone Notes app. The notes created in the app are actually saved in a "Notes" folder in your IMAP mail account.
 
-## Known issues
-
-Unfortunately, it seems "something" has changed in latest iOS releases (I tested on iOS 14.3) and sync seems to actually be one-way only; the iPhone never seems to take into account the modifications you do on the server. It just passes its changes to the server. When you edit a note on the phone, the original gets deleted and replaced with a new one and the phone keeps track of it via a local database. The phone never seems to redownload data from the server past the initial download.
-
-The only way I know of to force it to refresh the notes is to go to your account settings in the Settings app, turn syncing for Notes off for your account, confirm having the notes deleted from the iPhone, and then turning back on which will redownload your updated notes from the server.
-
-There has to be another way, as the Notes app on the iPhone syncs with the one on macOS, so there has to be a way for one device to "ping" the other and tell it to resync with the server, but I currently do not know the mechanism. Maybe it is tied to the Apple ID, using some internal API they have... In typical Apple fashion, this is yet another weird behavior besides having a non standard protocol to begin with. At least they could have included a manual 'refresh' button in the Notes app that would have downloaded the latest notes from the server (pull to refresh does not work in the Notes app, like in Mail, even though Notes is basically Mail but only a certain folder). Please, if you know how to solve this, open an issue and tell me, that would really help.
-
 ## Installation
 IMAP Notes releases can be found [here](https://github.com/valinet/IMAPNotes/releases). Each release will list the relevant changes and provides a link to an XPI file to download the add-on. 
 
