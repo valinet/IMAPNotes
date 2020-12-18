@@ -1,7 +1,11 @@
 # IMAP Notes
 This is a simple Thunderbird extension (compatible with Thunderbird 78+ as of January 2021) that allows editing notes created, edited and synced from the iPhone Notes app. The notes created in the app are actually saved in a "Notes" folder in your IMAP mail account.
 
-## Installation
+## Usage
+
+Simply right click any message in your "Notes" folder and choose either either "Edit IMAP note", either "Duplicate IMAP note". When editing a note, in order to save changes, press [Ctrl] + [S] on your keyboard. Edits are not yet saved automatically (I cannot figure out what event to listen to in JavaScript to detect the popup window closing and still have the document available - I tried `beforeunload` and it does not work).
+
+## Instructions
 IMAP Notes releases can be found [here](https://github.com/valinet/IMAPNotes/releases). Each release will list the relevant changes and provides a link to an XPI file to download the add-on. 
 
 _Note: You need to save the XPI file on your computer (using "save as" from the context menu). If you just click on it, it will be installed in your Firefox browser where it will not work of course. The downloaded file can be installed in Thunderbird using the gear menu in the Add-On Manager._
