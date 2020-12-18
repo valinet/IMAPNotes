@@ -1,0 +1,74 @@
+[
+  {
+    "namespace": "MessageModification",
+    "functions": [
+      {
+        "name": "setSubjectOfMessage",
+        "type": "function",
+        "description": "Set the subject of a Message.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "aID",
+            "type": "integer",
+            "description": "ID of the requested message."
+          },
+          {
+            "name": "aSubject",
+            "type": "string",
+            "description": "Subject"
+          }
+        ]
+      },
+      {
+        "name": "selectMessage",
+        "type": "function",
+        "description": "Select a message in UI.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "aID",
+            "type": "integer",
+            "description": "ID of the requested message."
+          }
+        ]
+      },
+      {
+        "name": "getMessageFlags",
+        "type": "function",
+        "description": "Get the internal Thunderbird flags of a message",
+        "async": true,
+        "parameters": [
+          {
+            "name": "aID",
+            "type": "integer",
+            "description": "ID of the requested message."
+          }
+        ]
+      },
+      {
+        "name": "addRaw",
+        "type": "function",
+        "description": "Add a new message.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "aContent",
+            "type": "string",
+            "description": "New raw content"
+          },
+          {
+            "name": "aMailFolder",
+            "$ref": "folders.MailFolder",
+            "description": "MailFolder to which the message should be added to."
+          },
+          {
+            "name": "aID",
+            "type": "integer",
+            "description": "ID of a message whos flags and keywords should be cloned."
+          }
+        ]
+      }
+    ]
+  }
+]

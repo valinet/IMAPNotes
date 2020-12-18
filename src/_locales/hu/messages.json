@@ -1,0 +1,26 @@
+{
+    "extensionDescription": {
+        "message": "A kapott e-mailek tárgynak szerkesztése."
+    },
+    "extensionName": {
+        "message": "E-mail tárgyának szerkesztése (Edit Email Subject)"
+    },
+    "lang.settings": {
+        "message": "Beállítások"
+    },
+    "lang.localOnly": {
+        "message": "Csak helyi változások (csak a helyi Thunderbird index adatbázis módosul)"
+    },
+    "lang.menuTitle": {
+        "message": "Tárgy s&zerkesztése"
+    },
+    "lang.subject": {
+        "message": "Tárgy:"
+    },
+    "lang.subjectOld": {
+        "message": "Eredeti tárgy:"
+    },
+    "lang.warning": {
+        "message": "Figyelem, a téma már megváltozott. Próbálja ki újra a saját felelősségére."
+    }
+}

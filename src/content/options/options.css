@@ -1,0 +1,5 @@
+.ees input[type="checkbox"] {
+    vertical-align: top;
+    float:left;
+    margin-right:1ex;
+}

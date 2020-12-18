@@ -1,0 +1,29 @@
+{
+    "extensionDescription": {
+        "message": "Edit received e-mail subjects."
+    },
+    "extensionName": {
+        "message": "Edit email subject"
+    },
+    "lang.settings": {
+        "message": "Settings"
+    },
+    "lang.localOnly": {
+        "message": "Only local changes (will only change local Thunderbird index database)"
+    },
+    "lang.menuTitle": {
+        "message": "Edit IMAP note (&z)"
+    },
+    "lang.subject": {
+        "message": "Subject:"
+    },
+    "lang.subjectOld": {
+        "message": "Original subject:"
+    },
+    "lang.warning": {
+        "message": "Warning, subject has already been changed. Try it again at your own risk."
+    },
+	"lang.menuTitle2": {
+        "message": "Duplicate IMAP note (&x)"
+    }
+}

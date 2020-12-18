@@ -1,0 +1,10 @@
+# Project utility commands
+
+# Building - I will be uploading my build script that deals with versions and file inclusions
+
+# Windows
+# quickie build - uses open source 7zip https://www.7-zip.org/
+7z a .\xpi\editemailsubject-2.1.2b1.xpi .\src\*
+
+# *nix - zip/gzip
+zip ./xpi/editemailsubject-2.1.2b1.xpi ./src/*

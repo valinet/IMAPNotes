@@ -1,0 +1,26 @@
+{
+    "extensionDescription": {
+        "message": "Email Betreff bearbeiten"
+    },
+    "extensionName": {
+        "message": "Edit email subject"
+    },
+    "lang.settings": {
+        "message": "Einstellungen"
+    },
+    "lang.localOnly": {
+        "message": "Änderungen nur lokal speichern (Lokale Datenbank)"
+    },
+    "lang.menuTitle": {
+        "message": "&Email Betreff bearbeiten"
+    },
+    "lang.subject": {
+        "message": "Betreff:"
+    },
+    "lang.subjectOld": {
+        "message": "Original betreff:"
+    },
+    "lang.warning": {
+        "message": "Warnung, der Betreff wurde schon bearbeitet. Eine erneute Änderung ist mit Risiken verbunden."
+    }
+}

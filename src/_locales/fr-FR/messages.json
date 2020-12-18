@@ -1,0 +1,26 @@
+{
+    "extensionDescription": {
+        "message": "Modifiez les lignes d'objet des messages reçus."
+    },
+    "extensionName": {
+        "message": "Edit email subject"
+    },
+    "lang.settings": {
+        "message": "Réglages"
+    },
+    "lang.localOnly": {
+        "message": "Changements locaux uniquement (base de donnée locale de Thunderbird)"
+    },
+    "lang.menuTitle": {
+        "message": "&Editer le sujet du message"
+    },
+    "lang.subject": {
+        "message": "Sujet:"
+    },
+    "lang.subjectOld": {
+        "message": "Sujet original:"
+    },
+    "lang.warning": {
+        "message": "Attention, le sujet de ce mail a déjà été modifié. Le changer de nouveau comprend des risques."
+    }
+}

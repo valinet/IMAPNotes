@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="/content/scripts/locales.js"></script>
+    <script src="/content/editemailsubjectPopup.js"></script>
+  </head>
+  
+  <body id="body" style="margin: 0; font-size:small;display:block">
+    <div style="margin: 10px; position: absolute; top: 0px; bottom: 0px; width: calc(100% - 20px); display: flex; flex-direction: column;">
+  	  <textarea style="border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none; height: 100%; box-sizing: border-box; margin-bottom: 0px;" type="text" id="editemailsubjectInput">
+	  </textarea>
+	
+      <div style="display: none">
+	    <input type="button" id="editemailsubjectOK" value="OK" class="btn btn-success">
+	    <input type="button" id="editemailsubjectCANCEL" value="CANCEL">
+      </div>
+	</div>
+  </body>
+</html>

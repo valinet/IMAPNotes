@@ -1,0 +1,46 @@
+{
+	"applications": {
+		"gecko": {
+			"id": "IMAPNotes@valinet.ro",
+			"strict_min_version": "78.0"
+		}
+	},
+	"manifest_version": 2,
+	"name": "IMAP Notes",
+	"version": "1.0",
+	"author": "valinet",
+	"description": "Allows editing IMAP notes created by Apple devices.",
+	"default_locale": "en-US",
+	"icons": {
+		"64": "content/images/editemailsubjectmx-icon-64px.png",
+		"32": "content/images/editemailsubjectmx-icon-32px.png",
+		"16": "content/images/editemailsubjectmx-icon-16px.png"
+	},
+	"permissions": ["storage", "menus", "messagesRead", "messagesMove","accountsRead"],
+	"background": {
+		"scripts": ["content/scripts/preferences.js", "content/editemailsubject.js", "background.js"]
+	},
+	"experiment_apis": {
+		"MessageModification": {
+			"schema": "api/MessageModification/schema.json",
+			"parent": {
+				"scopes": ["addon_parent"],
+				"paths": [["MessageModification"]],
+				"script": "api/MessageModification/implementation.js"
+			}
+		},
+		"LegacyPrefs": {
+			"schema": "api/LegacyPrefs/schema.json",
+			"parent": {
+				"scopes": ["addon_parent"],
+				"paths": [["LegacyPrefs"]],
+				"script": "api/LegacyPrefs/implementation.js"
+			}
+		}
+	}, 
+  "options_ui": {
+    "page": "/content/options/options.html",
+    "browser_style": true,
+	"open_in_tab": true
+  }
+}
