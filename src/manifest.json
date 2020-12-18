@@ -48,13 +48,13 @@
 	    "suggested_key": {
 		"default": "Ctrl+Shift+Z"
 	    },
-	    "description": "Edit IMAP note"
+	    "description": "Edit IMAP note(s)"
 	},
 	"duplicate-action": {
 	    "suggested_key": {
 		"default": "Ctrl+Shift+X"
 	    },
-	    "description": "Duplicate IMAP note"
+	    "description": "Duplicate IMAP note(s)"
 	}
 	}
 }

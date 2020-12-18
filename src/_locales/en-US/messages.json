@@ -12,7 +12,7 @@
         "message": "Only local changes (will only change local Thunderbird index database)"
     },
     "lang.menuTitle": {
-        "message": "Edit IMAP note (&z)"
+        "message": "Edit IMAP note(s) [&z]"
     },
     "lang.subject": {
         "message": "Subject:"
@@ -24,6 +24,6 @@
         "message": "Warning, subject has already been changed. Try it again at your own risk."
     },
 	"lang.menuTitle2": {
-        "message": "Duplicate IMAP note (&x)"
+        "message": "Duplicate IMAP note(s) [&x]"
     }
 }
