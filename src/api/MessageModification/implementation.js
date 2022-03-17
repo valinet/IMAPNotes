@@ -123,7 +123,7 @@ var MessageModification = class extends ExtensionCommon.ExtensionAPI {
                 extService.deleteTemporaryFileOnExit(fileSpec);
 
                 var copyMess = Components.classes["@mozilla.org/messenger/messagecopyservice;1"].getService(Components.interfaces.nsIMsgCopyService);
-                copyMess.CopyFileMessage(fileSpec, folder, null, false, refMsgHdr.flags, refMsgHdr.getStringProperty("keywords"), copyListener, null /*msgWindow*/);
+				copyMess.copyFileMessage(fileSpec, folder, null, false, refMsgHdr.flags, refMsgHdr.getStringProperty("keywords"), copyListener, null /*msgWindow*/);
               } else {
                 resolve(false);
               }

@@ -7,7 +7,7 @@
 	},
 	"manifest_version": 2,
 	"name": "IMAP Notes",
-	"version": "1.0",
+	"version": "1.2",
 	"author": "valinet",
 	"description": "Allows editing IMAP notes created by Apple devices.",
 	"default_locale": "en-US",
@@ -16,7 +16,7 @@
 		"32": "content/images/editemailsubjectmx-icon-32px.png",
 		"16": "content/images/editemailsubjectmx-icon-16px.png"
 	},
-	"permissions": ["storage", "menus", "messagesRead", "messagesMove","accountsRead"],
+	"permissions": ["storage", "menus", "messagesRead", "messagesMove", "accountsRead", "messagesDelete"],
 	"background": {
 		"scripts": ["content/scripts/preferences.js", "content/editemailsubject.js", "background.js"]
 	},

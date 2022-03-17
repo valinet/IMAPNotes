@@ -1,5 +1,5 @@
 async function okAndInput(e) {
-	if(e.ctrlKey && e.which === 83) {
+	if(e.ctrlKey && e.code === "KeyS") {
 		msg = await messenger.runtime.sendMessage({action: "requestUpdate", newSubject: document.getElementById("editemailsubjectInput").value, msg: msg});
 		document.title = msg.subject;
 		//const windowId = (await messenger.windows.getCurrent()).id;
